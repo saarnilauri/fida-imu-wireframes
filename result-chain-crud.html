@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fida-imu</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/Drag--Drop-Upload-Form.css">
+    <link rel="stylesheet" href="assets/css/jquery.magicsearch.min.css">
+    <link rel="stylesheet" href="assets/css/styles.compiled.css">
+</head>
+
+<body><nav class="navbar navbar-expand-md bg-primary navbar-ontop navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="app.html">
+        <img src="https://www.fida.info/wp-content/themes/fida/dist/images/fida_logo.svg" width="50" height="50" class="d-inline-block align-top" alt=""> </a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar2SupportedContent" aria-controls="navbar2SupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+      <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
+<a href="user-edit-profile.html"><img src="assets/img/user.svg" width="40" height="40" /></a>  
+        <a class="btn navbar-btn text-white mx-2 btn-secondary" href="login.html">Logout</a>
+      </div>
+    </div>
+</nav>
+    <div class="container-fluid">
+        <div class="modal fade" role="dialog" tabindex="-1" id="newIndicatorRelative">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Add new indicator</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                    <div class="modal-body">
+                        <p>Indicator settings</p>
+                        <form>
+                            <div class="form-group py-2"><input class="form-control" type="text" placeholder="Indicator name"></div>
+                            <p>Indicator type</p>
+                            <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-1"><label class="form-check-label" for="formCheck-1">Numeric</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-1" checked="checked"><label class="form-check-label" for="formCheck-1">Cause and Effect</label></div>
+                            <div class="form-group py-1"><label>Source</label><select class="form-control"><option value="12" selected="">New curches planted</option><option value="13">Trainings faciliated</option><option value="14">Mission health checks done.</option></select></div>
+                        </form>
+                    </div>
+                    <div class="modal-footer"><button class="btn btn-light" type="button" data-dismiss="modal">Close</button><button class="btn btn-primary" type="button">Save</button></div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" role="dialog" tabindex="-1" id="newIndicator">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Add new indicator</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                    <div class="modal-body">
+                        <p>Indicator settings</p>
+                        <form>
+                            <div class="form-group py-2"><input class="form-control" type="text" placeholder="Indicator name"></div>
+                            <p>Indicator type</p>
+                            <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-1" checked="checked"><label class="form-check-label" for="formCheck-1">Numeric</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-1"><label class="form-check-label" for="formCheck-1">Cause and Effect</label></div>
+                            <div class="form-group py-1"><input class="form-control" type="text" placeholder="Target value"></div>
+                            <div class="form-group py-1"><input class="form-control" type="text" placeholder="Unit"></div>
+                        </form>
+                    </div>
+                    <div class="modal-footer"><button class="btn btn-light" type="button" data-dismiss="modal">Close</button><button class="btn btn-primary" type="button">Save</button></div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" role="dialog" tabindex="-1" id="newIndicatorFromBank">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Add indicator</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                    <div class="modal-body">
+                        <p>Add from indicator bank</p>
+                        <form>
+                            <div class="form-group py-2"><select class="form-control"><optgroup label="This is a group"><option value="12" selected="">This is item 1</option><option value="13">This is item 2</option><option value="14">This is item 3</option></optgroup></select></div>
+                            <p>Or create new</p><button class="btn btn-primary" type="button">Add new</button></form>
+                    </div>
+                    <div class="modal-footer"><button class="btn btn-light" type="button" data-dismiss="modal">Close</button><button class="btn btn-primary" type="button">Save</button></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2 align-self-start main-nav-col">
+                <div>
+                    <div class="d-flex flex-column main-nav">
+                        <div class="nav-item"><a class="btn btn-light text-left" role="button" href="result-chain.html"><i class="fa fa-table"></i>&nbsp;My result chain</a></div>
+                        <div class="nav-item"><a class="btn btn-light text-left" role="button" href="reports.html"><i class="fa fa-file-text"></i>&nbsp;Reports</a></div>
+                        <div class="nav-item nav-item__breaker"><span style="padding:15px;">Admin area</span></div>
+                        <div class="nav-item"><a class="btn btn-light text-left" role="button" href="components.html"><i class="fa fa-cubes"></i>&nbsp;Components</a></div>
+                        <div class="nav-item"><a class="btn btn-light text-left" role="button" href="result-chain-list.html"><i class="fa fa-table"></i>&nbsp;Result chains</a></div>
+                        <div class="nav-item"><a class="btn btn-light text-left" role="button" href="indicator-bank.html"><i class="fa fa-tasks"></i>&nbsp;Indicator bank</a></div>
+                        <div class="nav-item"><a class="btn btn-light text-left" role="button" href="users.html"><i class="fa fa-users"></i>&nbsp;Users</a></div>
+                        <div class="nav-item"><a class="btn btn-light text-left" role="button" href="churches.html"><img src="assets/img/6753-200.png" width="20" height="20">&nbsp;Churches</a></div>
+                        <div class="nav-item"><a class="btn btn-light text-left" role="button" href="countries.html"><i class="fa fa-map-marker"></i>&nbsp;Countries</a></div>
+                        <div class="nav-item"><a class="btn btn-light text-left" role="button" href="areas.html"><i class="fa fa-map-o"></i>&nbsp;Areas</a></div>
+                        <div class="nav-item"><a class="btn btn-light text-left" role="button" href="config.html"><i class="fa fa-cog"></i>&nbsp;Configurations</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-10">
+                <div class="row">
+                    <div class="col">
+                        <div class="padder page-heading">
+                            <h1>Create a result chain</h1>
+                        </div>
+                    </div>
+                </div>
+                <form>
+                    <div class="form-row justify-content-between">
+                        <div class="col-8">
+                            <div class="form-row">
+                                <div class="col-12">
+                                    <div class="table-responsive table-bordered result-chain">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th class="result-chain__col result-chain__col__activity white-text">
+                                                        <div class="text-center"><button class="btn btn-outline-light btn-sm compress__toggle" type="button"><i class="fa fa-compress compress__toggle__icon"></i></button><span><strong>&nbsp;Activities</strong></span></div>
+                                                    </th>
+                                                    <th class="result-chain__col result-chain__col__output white-text">
+                                                        <div class="text-center"><button class="btn btn-outline-light btn-sm compress__toggle" type="button"><i class="fa fa-compress compress__toggle__icon"></i></button><span><strong>&nbsp;Output</strong></span></div>
+                                                    </th>
+                                                    <th class="result-chain__col result-chain__col__outcome white-text">
+                                                        <div class="text-center"><button class="btn btn-outline-light btn-sm compress__toggle" type="button"><i class="fa fa-compress compress__toggle__icon"></i></button><span><strong>&nbsp;Outcome</strong></span></div>
+                                                    </th>
+                                                    <th class="result-chain__col result-chain__col__impact white-text">
+                                                        <div class="text-center"><button class="btn btn-outline-light btn-sm compress__toggle" type="button"><i class="fa fa-compress compress__toggle__icon"></i></button><span><strong>&nbsp;Impact</strong></span></div>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <ul>
+                                                            <li>Activity number 1</li>
+                                                            <li>Activity num 2</li>
+                                                            <li>Activity num 3</li>
+                                                            <li>Activity num 4</li>
+                                                        </ul>HTML from wysiwyg &nbsp;
+                                                        <div></div>
+                                                    </td>
+                                                    <td>Cell 1
+                                                        <ul>
+                                                            <li>Activity number 1</li>
+                                                            <li>Activity num 2</li>
+                                                            <li>Activity num 3</li>
+                                                            <li>Activity num 4</li>
+                                                        </ul><span>HTML from wysiwyg</span></td>
+                                                    <td>Cell 1
+                                                        <ul>
+                                                            <li>Activity number 1</li>
+                                                            <li>Activity num 2</li>
+                                                            <li>Activity num 3</li>
+                                                            <li>Activity num 4</li>
+                                                        </ul><span>HTML from wysiwyg</span></td>
+                                                    <td>Cell 2
+                                                        <ul>
+                                                            <li>Activity number 1</li>
+                                                            <li>Activity num 2</li>
+                                                            <li>Activity num 3</li>
+                                                            <li>Activity num 4</li>
+                                                        </ul><span>HTML from wysiwyg</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="background-color:#e0a7a7;"><strong>Assumptions</strong></td>
+                                                    <td style="background-color:#e0a7a7;"><strong>Assumptions</strong></td>
+                                                    <td style="background-color:#e0a7a7;"><strong>Assumptions</strong></td>
+                                                    <td style="background-color:#e0a7a7;"><strong>Assumptions</strong></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <ul>
+                                                            <li>Activity number 1</li>
+                                                            <li>Activity num 2</li>
+                                                            <li>Activity num 3</li>
+                                                            <li>Activity num 4</li>
+                                                        </ul>HTML from wysiwyg</td>
+                                                    <td>Cell 1
+                                                        <ul>
+                                                            <li>Activity number 1</li>
+                                                            <li>Activity num 2</li>
+                                                            <li>Activity num 3</li>
+                                                            <li>Activity num 4</li>
+                                                        </ul><span>HTML from wysiwyg</span></td>
+                                                    <td>Cell 1
+                                                        <ul>
+                                                            <li>Activity number 1</li>
+                                                            <li>Activity num 2</li>
+                                                            <li>Activity num 3</li>
+                                                            <li>Activity num 4</li>
+                                                        </ul><span>HTML from wysiwyg</span></td>
+                                                    <td>Cell 2
+                                                        <ul>
+                                                            <li>Activity number 1</li>
+                                                            <li>Activity num 2</li>
+                                                            <li>Activity num 3</li>
+                                                            <li>Activity num 4</li>
+                                                        </ul><span>HTML from wysiwyg</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td>
+                                                        <div class="d-flex flex-column justify-content-between justify-content-between" style="height:320px;">
+                                                            <div>
+                                                                <div class="table-responsive table-borderless">
+                                                                    <table class="table table-striped table-bordered table-hover table-sm">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th colspan="2">Indicators</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td class="xs-text">Church planting workshops held<br></td>
+                                                                                <td class="text-center"><span class="badge badge-primary">4 / 5</span></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td class="xs-text">Trainings faciliated by Fida</td>
+                                                                                <td class="text-center"><span class="badge badge-primary">4 / 5</span></td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                            <div>
+                                                                <div class="input-group input-group-sm"><input class="form-control" type="text" placeholder="Add new indicator">
+                                                                    <div class="input-group-append"><button class="btn btn-secondary btn-sm" type="button" data-toggle="modal" data-target="#newIndicator">Add</button></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex flex-column justify-content-between" style="height:320px;">
+                                                            <div>
+                                                                <div class="table-responsive">
+                                                                    <table class="table table-striped table-hover table-sm">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th colspan="2">Indicators</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td class="xs-text">Church planting Health check score</td>
+                                                                                <td class="text-center"><span class="badge badge-primary">3 / 6</span></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td class="xs-text">Trainings held by partner church</td>
+                                                                                <td class="text-center"><span class="badge badge-primary">4 / 5</span></td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                            <div>
+                                                                <div class="input-group input-group-sm"><input class="form-control" type="text" placeholder="Add new indicator">
+                                                                    <div class="input-group-append"><button class="btn btn-secondary btn-sm" type="button" data-toggle="modal" data-target="#newIndicatorRelative">Add</button></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex flex-column justify-content-between" style="height:320px;">
+                                                            <div>
+                                                                <div class="table-responsive">
+                                                                    <table class="table table-striped table-hover table-sm">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th colspan="3">Indicators</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td class="xs-text">Church planting workshops held by partner church<br></td>
+                                                                                <td class="text-center"><span class="badge badge-primary">1 / 3</span></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td class="xs-text">Amount of trained church planters</td>
+                                                                                <td class="text-center"><span class="badge badge-primary">42 / 100</span></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td class="xs-text">Understanding of church planting has increased</td>
+                                                                                <td class="text-center"></td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                            <div>
+                                                                <div class="input-group input-group-sm"><input class="form-control" type="text" placeholder="Add new indicator">
+                                                                    <div class="input-group-append"><button class="btn btn-secondary btn-sm" type="button" data-toggle="modal" data-target="#newIndicatorFromBank">Add</button></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4 meta-data">
+                            <div class="form-row flex-column justify-content-between align-items-start py-2" style="padding:0 15px;">
+                                <div class="col">
+                                    <div class="padder">
+                                        <div class="form-group"><label>Result chain title</label><input class="form-control" type="text"></div>
+                                        <div class="form-group py-2"><label>Component</label>
+                                            <div class="form-check"><input class="form-check-input" type="radio" name="component" id="formCheck-2"><label class="form-check-label" for="formCheck-2">Plant&nbsp;<span class="badge badge-primary badge-component badge-component__sm">I</span></label></div>
+                                            <div
+                                                class="form-check"><input class="form-check-input" type="radio" name="component" id="formCheck-3"><label class="form-check-label" for="formCheck-3">Multiply&nbsp;<span class="badge badge-primary badge-component badge-component__sm">M</span></label></div>
+                                        <div
+                                            class="form-check"><input class="form-check-input" type="radio" name="component" id="formCheck-4"><label class="form-check-label" for="formCheck-4">Renew&nbsp;<span class="badge badge-primary badge-component badge-component__sm">U</span></label></div>
+                                </div>
+                                <div class="form-group py-2"><label>Users</label>
+                                    <div class="input-group input-group__btn__no-border"><input class="form-control" type="text" placeholder="Search users">
+                                        <div class="input-group-append"><button class="btn btn-light" type="button"><i class="fa fa-search"></i></button></div>
+                                    </div>
+                                    <div class="tagbox"><span class="badge badge-pill badge-secondary"></span><span class="badge badge-pill badge-secondary"></span>
+                                        <div class="btn-group btn-group-sm" role="group"><button class="btn btn-light" type="button"><i class="fa fa-user"></i>&nbsp;John Doe</button><button class="btn btn-secondary" type="button"><i class="fa fa-remove"></i></button></div>
+                                        <div class="btn-group btn-group-sm"
+                                            role="group"><button class="btn btn-light" type="button"><i class="fa fa-user"></i>&nbsp;Jane Doe<br></button><button class="btn btn-secondary" type="button"><i class="fa fa-remove"></i></button></div>
+                                    </div>
+                                </div>
+                                <div class="form-group py-2"><label>Country</label>
+                                    <div><select class="form-control"><option value="12" selected="">Thailand</option><option value="13">Cambodia</option><option value="14">Bangladesh</option></select></div>
+                                </div>
+                                <div class="form-group text-right py-2"><button class="btn btn-secondary" type="button">Save</button></div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        </form>
+    </div>
+    </div>
+    </div>
+    <div class="bubble-editor" style="top:300px;left:230px;"><img src="assets/img/bubble-editor.png"></div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdn.ckeditor.com/4.9.2/standard/ckeditor.js"></script>
+    <script src="assets/js/z.js"></script>
+</body>
+
+</html>
